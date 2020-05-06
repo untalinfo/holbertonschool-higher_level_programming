@@ -1,7 +1,7 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 def no_c(my_string):
-    n = ""
-    for c in my_string:
-        if c not in "cC":
-            n = n + c
-    return (n)
+    list = []
+    for i in my_string:
+        if i != 'c' and i != 'C':
+            list.append(i)
+    return ''.join(list)
