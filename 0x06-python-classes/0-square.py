@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-class Square:
+class Square():
     """A square class."""
     def __init__(self):
         """Initialization square."""
