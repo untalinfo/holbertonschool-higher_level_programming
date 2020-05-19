@@ -1,6 +1,9 @@
 #!/usr/bin/python3
+"""This module create a new class Square"""
+
+
 class Square():
-    """A square class."""
+    """A Square class."""
     def __init__(self):
-        """Initialization square."""
+        """Initialization Square."""
         pass
