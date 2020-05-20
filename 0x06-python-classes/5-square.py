@@ -32,7 +32,6 @@ class Square():
         else:
             print()
 
-        
     @property
     def size(self):
         """Getter function of size"""

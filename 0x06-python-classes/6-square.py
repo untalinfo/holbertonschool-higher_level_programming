@@ -40,7 +40,6 @@ class Square():
         else:
             print()
 
-        
     @property
     def size(self):
         """Getter function of size"""
@@ -59,7 +58,7 @@ class Square():
     def position(self):
         """Getter function of position"""
         return self.__position
-    
+
     @position.setter
     def position(self, value):
         """Setter function of position. position of the square"""
