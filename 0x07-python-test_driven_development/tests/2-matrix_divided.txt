@@ -1,0 +1,68 @@
+======================
+The ``2-matrix_divided`` module
+======================
+
+Using ``matrix_divided``
+-------------------
+
+This is an example text file in reStructuredText format.  First import
+``matrix_divided`` from the ``0-matrix_divided`` module:
+Import function:
+
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+Test it:
+
+
+division by int:
+
+    >>> matrix = [[1, 2, 3], [4, 5, 6]]
+    >>> matrix_divided(matrix, 3)
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+division by float:
+
+    >>> matrix = [[3, 7], [8, 2]]
+    >>> matrix_divided(matrix, 5.8)
+    [[0.52, 1.21], [1.38, 0.34]]
+
+division by zero:
+
+    >>> matrix = [[1, 2, 3], [4, 5, 6]]
+    >>> matrix_divided(matrix, 0)
+    Traceback (most recent call last):
+    ZeroDivisionError: division by zero
+
+Matrix is None:
+
+    >>> matrix = []
+    >>> matrix_divided(matrix, 5)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Matrix without arguments:
+
+    >>> matrix_divided()
+    Traceback (most recent call last):
+    TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
+
+Matrix is list:
+
+    >>> matrix = "hello"
+    >>> matrix_divided(matrix, 4)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Matrix is not float/int:
+
+    >>> matrix = [["hello", "hi"]]
+    >>> matrix_divided(matrix, 4)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Row matriz != diferent size:
+
+    >>> matrix = [[10, 12], [1, 3, 5,]]
+    >>> matrix_divided(matrix, 4)
+    Traceback (most recent call last):
+    TypeError: Each row of the matrix must have the same size

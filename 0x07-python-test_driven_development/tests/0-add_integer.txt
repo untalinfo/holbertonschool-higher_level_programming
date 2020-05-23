@@ -1,0 +1,86 @@
+======================
+The ``0-add_integer`` module
+======================
+
+Using ``add_integer``
+-------------------
+
+This is an example text file in reStructuredText format.  First import
+``add_integer`` from the ``0-add_integer`` module:
+Import function:
+
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+Test it:
+
+Positive Numbers:
+
+    >>> add_integer(3, 6)
+    9
+
+    >>> add_integer(10, 15)
+    25
+
+    >>> add_integer(1200, 2000)
+    3200
+
+Negative Numbers:
+
+    >>> add_integer(-4, -8)
+    -12
+
+    >>> add_integer(-3, -5)
+    -8
+
+    >>> add_integer(-80, -20)
+    -100
+
+Positive Floats:
+
+    >>> add_integer(2.5, 4.5)
+    6
+
+    >>> add_integer(10.4, 4.3)
+    14
+
+    >>> add_integer(23.8, 97.5)
+    120
+
+Negative Floats:
+
+    >>> add_integer(-26.5, -3.5)
+    -29
+
+    >>> add_integer(-10.4, -34.3)
+    -44
+
+    >>> add_integer(-2.8, -3.5)
+    -5
+
+Just an argument:
+
+    >>> add_integer(3)
+    101
+
+    >>> add_integer(10)
+    108
+
+    >>> add_integer(20)
+    118
+
+Integers and Floats:
+
+    >>> add_integer(2, 3.5)
+    5
+
+    >>> add_integer(5.6, 3)
+    8
+
+    >>> add_integer(2.4, 5)
+    7
+    
+Error Cases.
+
+    >>> add_integer(4, "School")
+    Traceback (most recent call last):
+    TypeError: b must be an integer
