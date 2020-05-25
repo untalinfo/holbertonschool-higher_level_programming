@@ -7,18 +7,35 @@ class Rectangle:
     class that generate a rectangle
     """
     def __init__(self, width=0, height=0):
-        """Initialize class"""
+        """Constructor initialize the class rectangle
+
+        Keyword Arguments:
+            width {int} -- width of the rectangle (default: {0})
+            height {int} -- height of the rectangle (default: {0})
+        """
         self.width = width
         self.height = height
 
     @property
     def width(self):
-        """getter of width"""
+        """Getter function of width
+
+        Returns:
+            int -- width fo the rectangle
+        """
         return self.__width
 
     @width.setter
     def width(self, value):
-        """setter of width"""
+        """Setter function to width
+
+        Arguments:
+            value {int} -- [valeu of width]
+
+        Raises:
+            TypeError: width must be an integer
+            ValueError: width must be >= 0
+        """
         if type(value) != int:
             raise TypeError("width must be an integer")
         if value < 0:
@@ -27,12 +44,24 @@ class Rectangle:
 
     @property
     def height(self):
-        """getter of height"""
+        """Getter function to height
+
+        Returns:
+            int -- height of the rectangle
+        """
         return self.__height
 
     @width.setter
     def height(self, value):
-        """setter of height"""
+        """Setter function os height
+
+        Arguments:
+            value {int} -- Value of height
+
+        Raises:
+            TypeError: width must be an integer
+            ValueError: width must be >= 0
+        """
         if type(value) != int:
             raise TypeError("width must be an integer")
         if value < 0:
