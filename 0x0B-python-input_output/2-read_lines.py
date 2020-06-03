@@ -12,8 +12,10 @@ def read_lines(filename="", nb_lines=0):
         nb_lines {int} -- number of lines (default: {0})
     """
     with open(filename) as f:
-        if nb_lines <= 0 or nb_lines >= len(list(f)):
-            nb_lines = len(list(f))
+        if nb_lines <= 0 or nb_lines >= len(f.readlines()):
+            nb_lines = len(f.readlines())
+            for i in range(nb_lines):
+                print(f.readline(), end='')
         f.seek(0)
         for i in range(nb_lines):
             print(f.readline(), end='')
