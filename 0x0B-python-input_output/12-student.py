@@ -21,8 +21,15 @@ class Student:
         self.last_name = last_name
         self.age = age
 
-    def to_json(self):
+    def to_json(self, attrs=None):
         """
         dictionary representation of a Student
         """
-        return self.__dict__
+        if type(attrs) is not list:
+            return self.__dict__
+        new_dict = {}
+        for i in attrs:
+            validation = getattr(self, i, None)
+            if validation is not None:
+                new_dict[i] = validation
+        return new_dict
