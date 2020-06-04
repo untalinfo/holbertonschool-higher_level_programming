@@ -16,6 +16,8 @@ def read_lines(filename="", nb_lines=0):
             for i in range(nb_lines):
                 print(f.readline(), end='')
             nb_lines = len(f.readlines())
-        f.seek(0)
+        f.seek(0, 0)
+        i = 0
         for i in range(nb_lines):
             print(f.readline(), end='')
+            i+=i
