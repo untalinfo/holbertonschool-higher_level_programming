@@ -18,4 +18,4 @@ class Test_Rectangle(unittest.TestCase):
     def test_parameters(self):
         r1 = Rectangle(10, 2)
         r3 = Rectangle(10, 2, 0, 0, 12)
-        self.assertEqual(r1.id, 9)
+        self.assertEqual(r1.id, 1)
