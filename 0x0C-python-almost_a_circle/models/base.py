@@ -45,9 +45,9 @@ class Base:
         else:
             for i in list_objs:
                 data.append(i.to_dictionary())
-            filename = cls.__name__ + ".json"
-            with open(filename, "w") as f:
-                f.write(cls.to_json_string(data))
+        filename = cls.__name__ + ".json"
+        with open(filename, "w") as f:
+            f.write(cls.to_json_string(data))
 
     @staticmethod
     def from_json_string(json_string):
@@ -55,7 +55,7 @@ class Base:
         list of the JSON string representation json_string
         """
         if json_string is None or json_string == []:
-            data = []
+            return []
         else:
             return json.loads(json_string)
 
