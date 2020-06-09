@@ -4,6 +4,7 @@ Module base
 """
 import json
 import os
+import csv
 
 
 class Base:
@@ -86,31 +87,46 @@ class Base:
             data.append(cls.create(**i))
         return data
 
-    def save_to_file_csv(cls, list_objs):
+    @classmethod
+    def save_to_file_csv(cls, data):
         """
-        writes the JSON string representation
+        Save to CSV string
         """
-        filename = cls.__name__ + ".csv"
-        data = []
-        if list_objs is None or list_objs == []:
-            data = []
-        else:
-            for i in list_objs:
-                data.append(i.to_dictionary())
+
         filename = cls.__name__ + ".csv"
         with open(filename, "w") as f:
-            f.write(cls.to_json_string(data))
+            if data is not None:
+                data = [i.to_dictionary() for i in data]
+                sfields = ['id', 'size', 'x', 'y']
+                rfields = ['id', 'width', 'height', 'x', 'y']
+                if cls.__name__ == "Rectangle":
+                    writer = csv.DictWriter(f, fieldnames=rfields)
+                else:
+                    writer = csv.DictWriter(f, fieldnames=sfields)
+                writer.writeheader()
+                writer.writerows(data)
 
+    @classmethod
     def load_from_file_csv(cls):
         """
-        Returns a list of instances:
+        deserializes in CSV
         """
-        data = []
         filename = cls.__name__ + ".csv"
-        if not os.path.exists(filename):
-            return []
-        with open(filename, "r") as f:
-            dictionary = cls.from_json_string(f.readline())
-        for i in dictionary:
-            data.append(cls.create(**i))
-        return data
+        sheader = ["id", "size", "x", "y"]
+        rheader = ["id", "width", "height", "x", "y"]
+        if cls.__name__ == "Rectangle":
+            header = rheader
+        else:
+            header = sheader
+        result = []
+        if os.path.exists(filename):
+            with open(filename, "r") as f:
+                reader = csv.reader(f, delimiter=',')
+                for i, row in enumerate(reader):
+                    if i > 0:
+                        new = cls(1, 1)
+                        for x, y in enumerate(row):
+                            if y:
+                                setattr(new, header[x], int(y))
+                        result.append(new)
+        return result
