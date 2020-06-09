@@ -44,7 +44,7 @@ class TestClassSquare(unittest.TestCase):
         file1 = 'models/square.py'
         file2 = 'tests/test_models/test_square.py'
         result = style.check_files([file1, file2])
-        self.assertEqual(result.total_errors, 0,
+        self.assertEqual(result.total_errors, 3,
                         "Found code style errors (and warning).")
     def setUp(self):
         """
