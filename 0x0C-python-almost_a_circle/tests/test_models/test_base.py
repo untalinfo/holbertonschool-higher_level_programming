@@ -11,17 +11,25 @@ from models.base import Base
 
 
 class TestDocsB(unittest.TestCase):
-    """ check for documentation """
+    """
+    check for documentation
+    """
     def test_module_doc(self):
-        """ check for module documentation """
+        """
+        check for module documentation
+        """
         self.assertTrue(len(base.__doc__) > 0)
 
     def test_class_doc(self):
-        """ check for documentation """
+        """
+        check for documentation
+        """
         self.assertTrue(len(Base.__doc__) > 0)
 
     def test_method_docs(self):
-        """ check for method documentation """
+        """
+        check for method documentation
+        """
         for func in dir(Base):
             self.assertTrue(len(func.__doc__) > 0)
 
@@ -30,7 +38,9 @@ class Test_Base(unittest.TestCase):
     Class test on the base class
     """
     def test_pep8_conformance_base(self):
-        """Test that we conform to PEP8."""
+        """
+        Test that we conform to PEP8.
+        """
         pep8style = pep8.StyleGuide(quiet=True)
         result = pep8style.check_files(['models/base.py'])
         self.assertEqual(result.total_errors, 0,
