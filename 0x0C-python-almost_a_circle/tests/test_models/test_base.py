@@ -6,8 +6,8 @@ import unittest
 import pep8
 import sys
 import io
+from models import base
 from models.base import Base
-from models.rectangle import Rectangle
 
 
 class TestDocsB(unittest.TestCase):
