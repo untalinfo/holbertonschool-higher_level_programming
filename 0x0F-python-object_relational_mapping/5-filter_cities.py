@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# lists all states from the database hbtn_0e_0_usa
+"""lists all states from the database hbtn_0e_0_usa"""
 
 import MySQLdb
 import sys
@@ -16,7 +16,7 @@ if __name__ == "__main__":
     cur = db.cursor()
     cur.execute("SELECT cities.name FROM cities\
     JOIN states ON cities.state_id = states.id\
-    WHERE states.name=%s ORDER BY cities.id ASC;", (state,))
+    WHERE states.name = %s ORDER BY cities.id ASC;", (state,))
     rows = cur.fetchall()
     i = 0
     for row in rows:
